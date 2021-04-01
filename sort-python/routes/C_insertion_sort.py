@@ -15,24 +15,16 @@ router = APIRouter()
 @router.post("/insertion_sort", tags=["插入排序"])
 def sort(num_list: List[int]) -> List:
     num_len = len(num_list)
-    # 当前位置
-    cur_i = 1
 
-    while num_len > cur_i:
+    for cur_i in range(1, num_len):
         # 取后半部分第一个
         cur_num = num_list[cur_i]
 
         # 遍历前半部分序列插入
-        insert_j = 0
-        for j in range(cur_i):
-            if num_list[cur_i - j - 1] < cur_num:
-                insert_j = cur_i - j
-                break
-
-        if insert_j != cur_i:
-            del num_list[cur_i]
-            num_list.insert(insert_j, cur_num)
-
-        cur_i += 1
+        j = cur_i - 1
+        while j >= 0 and num_list[j] > cur_num:
+            num_list[j+1] = num_list[j]
+            j -= 1
+        num_list[j+1] = cur_num
 
     return num_list
