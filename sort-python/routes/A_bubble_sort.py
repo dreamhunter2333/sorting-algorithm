@@ -20,10 +20,8 @@ router = APIRouter()
 @router.post("/bubble_sort", tags=["冒泡排序"])
 def sort(num_list: List[int]) -> List:
     num_len = len(num_list)
-    for i in range(num_len):
-        for j in range(i, num_len):
-            if num_list[i] > num_list[j]:
-                tmp = num_list[i]
-                num_list[i] = num_list[j]
-                num_list[j] = tmp
+    for i in range(num_len - 1):
+        for j in range(len(num_list) - i - 1):  # j为列表下标
+            if num_list[j] > num_list[j + 1]:
+                num_list[j], num_list[j + 1] = num_list[j + 1], num_list[j]
     return num_list
