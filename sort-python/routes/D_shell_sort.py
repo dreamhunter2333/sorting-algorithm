@@ -16,6 +16,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
+
 @router.post("/shell_sort", tags=["希尔排序"])
 def sort(num_list: List[int]) -> List:
     num_len = len(num_list)

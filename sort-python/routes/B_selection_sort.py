@@ -13,6 +13,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
+
 @router.post("/selection_sort", tags=["选择排序"])
 def sort(num_list: List[int]) -> List:
     num_len = len(num_list)

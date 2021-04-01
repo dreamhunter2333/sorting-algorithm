@@ -12,6 +12,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
+
 @router.post("/insertion_sort", tags=["插入排序"])
 def sort(num_list: List[int]) -> List:
     num_len = len(num_list)

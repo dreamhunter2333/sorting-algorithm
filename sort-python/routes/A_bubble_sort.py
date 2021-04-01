@@ -17,6 +17,7 @@ from fastapi import APIRouter
 
 router = APIRouter()
 
+
 @router.post("/bubble_sort", tags=["冒泡排序"])
 def sort(num_list: List[int]) -> List:
     num_len = len(num_list)
