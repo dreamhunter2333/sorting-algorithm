@@ -16,22 +16,11 @@ router = APIRouter()
 
 @router.post("/selection_sort", tags=["选择排序"])
 def sort(num_list: List[int]) -> List:
-    num_len = len(num_list)
-    # 当前位置
-    cur_i = 0
-
-    while num_len > cur_i + 1:
-        # 取后半部分最小值
-        min_i = cur_i
-        min_num = num_list[cur_i]
-        for i in range(cur_i+1, num_len):
-            if min_num > num_list[i]:
-                min_num = num_list[i]
-                min_i = i
-        # 与 cur_i 互换位置
-        if cur_i != min_i:
-            num_list[min_i] = num_list[cur_i]
-            num_list[cur_i] = min_num
-        cur_i += 1
-
+    nums_len = len(num_list)
+    for i in range(nums_len - 1):
+        min_index = i
+        for j in range(i, nums_len):
+            if num_list[min_index] > num_list[j]:
+                min_index = j
+        num_list[min_index], num_list[i] = num_list[i], num_list[min_index]
     return num_list

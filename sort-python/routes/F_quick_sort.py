@@ -51,3 +51,6 @@ def sort(num_list: List[int]) -> List:
     quick_sort(0, len(num_list) - 1)
 
     return num_list
+
+
+print(sort([0, 5, 4, 0, 3, 2, 1]))
